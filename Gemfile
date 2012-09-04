@@ -18,3 +18,12 @@ group :development do
   gem 'taps'
 end
 
+group :development, :test do
+  gem 'bullet'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'fixture_builder'
+  gem 'rspec-rails'
+  gem 'shoulda'
+end
