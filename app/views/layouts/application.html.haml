@@ -26,30 +26,17 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#{root_path}") Berlina
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
 
     .container
 
       .content
         .row
-          .span9
+          .span12
             = bootstrap_flash
             = yield
-          .span3
-            .well.sidebar-nav
-              %h3 Sidebar
-              %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
-    
+
       %footer
-        %p &copy; Company 2012
+        %p &copy; #{link_to "Localisto", "http://www.localisto.org"} #{Time.now.year}
     /
       Javascripts
       \==================================================
