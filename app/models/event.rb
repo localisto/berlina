@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   validates :external_id, presence: true, uniqueness: true
   validates :start_time, presence: true
 
-  delegate :name, :hashtag, to: :organization
+  delegate :name, :hashtag, :tweets, :update_tweets!, to: :organization
 
   def geocoded?
     lat? && lng?

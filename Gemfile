@@ -6,7 +6,9 @@ gem 'haml-rails'
 gem 'pg'
 gem 'rails', '3.2.8'
 gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git'
+gem 'twitter'
 gem 'twitter-bootstrap-rails'
+gem 'twitter-text'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

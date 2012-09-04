@@ -18,3 +18,12 @@
     %h1 ##{@event.hashtag}
     <a href="https://twitter.com/intent/tweet?button_hashtag=#{@event.hashtag}" class="twitter-hashtag-button" data-lang="en" data-related="localisto">Tweet ##{@event.hashtag}</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  - if @tweets.present?
+    %ul
+      - @tweets.each do |tweet|
+        %li
+          = image_tag(tweet.profile_image_url)
+          = tweet.name
+          = tweet.username
+          = auto_link(tweet.text).html_safe

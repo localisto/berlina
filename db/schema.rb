@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904205151) do
+ActiveRecord::Schema.define(:version => 20120904222314) do
 
   create_table "events", :force => true do |t|
     t.string   "external_id"
@@ -39,6 +39,26 @@ ActiveRecord::Schema.define(:version => 20120904205151) do
     t.string   "hashtag"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "tweets", :force => true do |t|
+    t.integer  "twitter_user_id"
+    t.integer  "external_id",     :limit => 8
+    t.string   "text"
+    t.string   "image_url"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "tweets", ["twitter_user_id"], :name => "index_tweets_on_twitter_user_id"
+                   ``
+  create_table "twitter_users", :force => true do |t|
+    t.integer  "external_id",       :limit => 8
+    t.string   "username"
+    t.string   "name"
+    t.string   "profile_image_url"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
 end
