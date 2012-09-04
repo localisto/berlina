@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904201611) do
+ActiveRecord::Schema.define(:version => 20120904205151) do
 
   create_table "events", :force => true do |t|
     t.string   "external_id"
-    t.string   "name"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at",                                       :null => false
@@ -29,9 +28,17 @@ ActiveRecord::Schema.define(:version => 20120904201611) do
     t.string   "contact_position"
     t.string   "contact_phone"
     t.string   "contact_email"
-    t.string   "hashtag"
+    t.integer  "organization_id"
   end
 
   add_index "events", ["external_id"], :name => "index_events_on_external_id", :unique => true
+  add_index "events", ["organization_id"], :name => "index_events_on_organization_id"
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "hashtag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

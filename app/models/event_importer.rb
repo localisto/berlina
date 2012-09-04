@@ -9,7 +9,7 @@ class EventImporter
       json = JSON.parse(open(URI).read)
       json["data"].each do |row|
         event = Event.find_or_initialize_by_external_id(row[1])
-        event.name = row[8]
+        event.organization = Organization.find_or_create_by_name(row[8])
         event.start_time = row[9]
         event.end_time = row[10]
         event.venue = row[11]
