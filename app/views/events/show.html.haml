@@ -1,0 +1,5 @@
+%h1= @event.name
+
+%h2 Start time: #{@event.start_time}
+- if @event.end_time?
+  %h2 End time: #{@event.end_time}
