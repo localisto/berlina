@@ -1,4 +1,6 @@
 class Organization < ActiveRecord::Base
+  attr_accessible :hashtag
+
   has_many :events, dependent: :destroy
 
   validates :name, presence: true
