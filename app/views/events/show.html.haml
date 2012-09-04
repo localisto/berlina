@@ -4,5 +4,10 @@
 - if @event.end_time?
   %h2 End time: #{@event.end_time}
 
+%ul
+  - event_fields.each do |field|
+    - next unless @event.send("#{field}?")
+    %li= @event.send(field)
+
 - if @event.geocoded?
   = map_image @event
