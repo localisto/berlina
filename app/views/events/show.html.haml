@@ -1,13 +1,20 @@
-%h1= @event.name
+.row
+  .span6
+    %h1= @event.name
 
-%h2 Start time: #{@event.start_time}
-- if @event.end_time?
-  %h2 End time: #{@event.end_time}
+    %h2 Start time: #{@event.start_time}
+    - if @event.end_time?
+      %h2 End time: #{@event.end_time}
 
-%ul
-  - event_fields.each do |field|
-    - next unless @event.send("#{field}?")
-    %li= @event.send(field)
+    %ul
+      - event_fields.each do |field|
+        - next unless @event.send("#{field}?")
+        %li= @event.send(field)
 
-- if @event.geocoded?
-  = map_image @event
+    - if @event.geocoded?
+      = map_image @event
+
+  .span6
+    %h1 ##{@event.hashtag}
+    <a href="https://twitter.com/intent/tweet?button_hashtag=#{@event.hashtag}" class="twitter-hashtag-button" data-lang="en" data-related="localisto">Tweet ##{@event.hashtag}</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

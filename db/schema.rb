@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904185641) do
+ActiveRecord::Schema.define(:version => 20120904201611) do
 
   create_table "events", :force => true do |t|
     t.string   "external_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120904185641) do
     t.string   "contact_position"
     t.string   "contact_phone"
     t.string   "contact_email"
+    t.string   "hashtag"
   end
 
   add_index "events", ["external_id"], :name => "index_events_on_external_id", :unique => true
