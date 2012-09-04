@@ -1,0 +1,11 @@
+.bundle
+.idea
+db/*.sqlite3
+log/*.log
+spec/fixtures/*
+tmp/*
+tmp/**/*
+.sass-cache
+rails_best_practices_output.html
+*.dump
+.DS_Store
