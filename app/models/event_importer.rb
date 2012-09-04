@@ -19,8 +19,8 @@ class EventImporter
         #event.contact_position = row[15]
         #event.contact_phone = row[16]
         #event.contact_email = row[17]
-        #event.latitude = row[18]
-        #event.longitude = row[19]
+        event.lat = row[18]
+        event.lng = row[19]
 
         event.save
       end
