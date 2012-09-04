@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'pg'
 gem 'rails', '3.2.8'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
