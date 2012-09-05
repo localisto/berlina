@@ -14,6 +14,10 @@ class Organization < ActiveRecord::Base
     end
   end
 
+  def next_event
+    events.where("start_time >= ?", Time.now).order("start_time").first
+  end
+
   private
 
   def set_hashtag

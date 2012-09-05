@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @events = Event.order("start_time").includes(:organization)
+    @categories = Category.order("name")
   end
 end

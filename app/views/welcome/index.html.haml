@@ -3,6 +3,7 @@
 %div{"data-random-tweets-path" => random_tweets_path}
   %ul
     %li
+
 %ul
-  - @events.each do |event|
-    %li= link_to event.name, event
+  - @categories.each do |category|
+    %li= link_to category.name, category
