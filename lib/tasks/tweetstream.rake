@@ -1,7 +1,7 @@
 namespace :tweetstream do
   desc "Stream tweets"
   task :stream => :environment do
-    TweetStream::Client.new.track(Organization.hashtags << "#Music") do |status|
+    TweetStream::Client.new.track(Organization.hashtags) do |status|
       twitter_user = TwitterUser.find_or_initialize_by_external_id(status.user.id)
       twitter_user.username = status.user.screen_name
       twitter_user.name = status.user.name
