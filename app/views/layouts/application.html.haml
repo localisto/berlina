@@ -42,3 +42,9 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
+    %script#tweet{type: "text/html"}
+      %li{id: "{{external_id}}"}
+        %img{src: "{{profile_image_url}}"}
+        {{name}}
+        %a{href: "http://twitter.com/{{username}}"} @{{username}}
+        {{{text}}}

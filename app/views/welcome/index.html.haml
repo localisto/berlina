@@ -1,5 +1,8 @@
 %h1 Welcome to Berlina!
 
+%div{"data-random-tweets-path" => random_tweets_path}
+  %ul
+    %li
 %ul
   - @events.each do |event|
     %li= link_to event.name, event
