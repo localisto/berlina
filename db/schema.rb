@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904222314) do
+ActiveRecord::Schema.define(:version => 20120905174728) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.string   "external_id"
@@ -37,9 +43,12 @@ ActiveRecord::Schema.define(:version => 20120904222314) do
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.string   "hashtag"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "category_id"
   end
+
+  add_index "organizations", ["category_id"], :name => "index_organizations_on_category_id"
 
   create_table "tweets", :force => true do |t|
     t.integer  "twitter_user_id"
@@ -51,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20120904222314) do
   end
 
   add_index "tweets", ["twitter_user_id"], :name => "index_tweets_on_twitter_user_id"
-                   ``
+
   create_table "twitter_users", :force => true do |t|
     t.integer  "external_id",       :limit => 8
     t.string   "username"

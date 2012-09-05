@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :hashtag
+  attr_accessible :category_id, :hashtag
 
+  belongs_to :category
   has_many :events, dependent: :destroy
 
   validates :name, presence: true
