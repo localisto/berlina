@@ -23,7 +23,7 @@
         %a{:href=>"http://localisto.org"}
           %img{:src => "/assets/localisto.png", :height=>10}
         %a{:href=>"http://localisto.org"}
-          %p presents Berlina
+          %p presents TweetStarter
         
       %a{:href => "#myModal", :role => "button", :class => "info", "data-toggle" => "modal"}
        
@@ -56,4 +56,10 @@
 
         %script
           $('#myModal').modal()
-
+        %script
+          $(document).ready(function() {
+          $(".iconhold ").hover(function() {
+          $(this).children("p").fadeIn();
+          }, function() {
+          $(this).children("p").fadeOut();
+          });});

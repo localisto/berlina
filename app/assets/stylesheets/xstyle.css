@@ -23,9 +23,10 @@ h2 { font-weight: 100; font-size: 25px; font-color: #7f7f7f;}
 .titlerow li {display: inline; padding-left: 100px;}
 
 #nf {width: 940px;}
-#long {width: 1200px}
+#long {width: 1200px;}
 
 #randtweets li {list-style: none;}
+#randtweets {height: 50px;}
 
 #randtweets {margin-top: 60px}
 
@@ -62,4 +63,9 @@ margin-left: -25px;}
 .databy {padding-top: 80px;}
 .databy a {color: #7f7f7f;}
 
+
 div#map { width: 370px; height: 370px; }
+
+.iconrow p {display: none;}
+
+
