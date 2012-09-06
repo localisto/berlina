@@ -1,10 +1,19 @@
 <div id="eventpage" class="container">
   <div class="row">
-    <div class="span9"><h1><%= @event.name %></h1></div>
+    <div class="span9"><h1><%= @event.name %></h1>
+    <a href="#tweethelpmodal" role="button" class="help" data-toggle="modal"></a></div>
   </div>
   <hr>
   <div class="row">
     <div class="span4">
+
+    	 <% if @event.address? %>
+            <b>Address: </b><br>
+            <%= @event.address %><br>
+            <%= @event.venue%><br>
+            <%= @event.venue_extra%><br>
+
+      <% end %>
 
       <b>Event Start Time: </b><%= @event.start_time.strftime("%B, %d, %Y at %I:%M %p") %>
       <br>
@@ -13,13 +22,27 @@
           <b>Event End Time: </b><%= @event.end_time.strftime("%B, %d, %Y at %I:%M %p") %>
       <% end %>
       <br><br>
-      <b>Event Details</b>
-      <ul>
-        <% event_fields.each do |field| %>
-            <% next unless @event.send("#{field}?") %>
-            <li><%= @event.send(field) %></li>
-        <% end %>
-      </ul>
+      
+
+     
+      
+      <% if @event.contact_name? %>
+      <b>Event Contact</b><br>
+      <b>Name: </b><%= @event.contact_name %>
+      <%end%>
+      <% if @event.contact_position? %>
+      <br><b>Position: </b><%= @event.contact_position %>
+      <%end%>
+        <% if @event.contact_phone? %>
+      <br><b>Phone: </b><%= @event.contact_phone %>
+      <%end%>
+       <% if @event.contact_email? %>
+      <br><b>Phone: </b><%= @event.contact_email %>
+      <%end%>
+
+     
+
+
       <br><br>
       <% if @event.geocoded? %>
           <div id="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>"></div>
@@ -43,12 +66,27 @@
             }
         }(document, "script", "twitter-wjs");</script>
       </div>
-      <div class="help"></div>
+      
       <div class="clear"></div>
 
       <ul id="eventtweets" data-tweets-path="<%= tweets_path(hashtag: @event.hashtag) %>"
       </ul>
 
     </div>
+  </div>
+</div>
+
+
+<div class="modal" id="tweethelpmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>tweethelpmodal</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
   </div>
 </div>

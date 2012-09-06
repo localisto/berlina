@@ -13,8 +13,8 @@ body {
 
 .container {width: 940px;}
 
-h1 {margin-top: 70px; font-weight: 200; font-size: 39px; color: #7f7f7f; }
-#eventpage h1 {float: left;}
+h1 {margin-top: 120px; font-weight: 200; font-size: 39px; color: #7f7f7f; }
+#eventpage h1 {float: left; margin-top: 70px;}
 h2 { font-weight: 100; font-size: 21px; font-color: #7f7f7f;}
 .iconrow {margin-top: 60px}
 .iconrow div {width: 188px; float:left;}
@@ -34,7 +34,7 @@ ul#eventtweets li {list-style: none; margin-top: 15px; }
 ul#eventtweets {margin: 0px;}
 ul#eventtweets img {width: 25px;}
 
-html {height: 100%}
+
 
 ul.orglist li {list-style: none;
 font-size: 16px;
@@ -45,10 +45,12 @@ margin-left: -25px;}
 
 .helpbutton {float: right;}
 
-.help {width: 33px; height: 30px; margin-right: -65px; float:right; background-image:url('../assets/help.png'); }
+.help {width: 33px; height: 30px; margin-top: 76px; margin-right: -65px; float:right; background-image:url('../assets/help.png'); }
 .info {width: 33px; height: 30px; float:right; background-image:url('../assets/info.png'); }
 
-.projecttag {float: left;}
+.projecttag {}
+.bylocalisto {float: right;}
+.bylocalisto p {padding-right: 5px;}
 
 #topcon {padding-top: 10px;}
 
@@ -67,6 +69,6 @@ margin-left: -25px;}
 div#map { width: 370px; height: 370px; }
 
 .iconrow p {display: none;}
-.iconhold {}
+.iconhold {height: 190px}
 
 
