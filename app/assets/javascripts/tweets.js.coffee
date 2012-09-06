@@ -6,6 +6,7 @@
     success: (data) ->
       for tweet in data
         tweet.text = twttr.txt.autoLink tweet.text
+        tweet.created_at = $.format.date(tweet.created_at, "MMMM d, yyyy h:mm a")
         li = ich.tweet(tweet)
         if $("li#" + tweet.external_id).length == 0
           $("ul[data-tweets-path]").prepend li
@@ -18,6 +19,7 @@
     dataType: 'json',
     success: (tweet) ->
       tweet.text = twttr.txt.autoLink tweet.text
+      tweet.created_at = $.format.date(tweet.created_at, "MMMM d, yyyy h:mm a")
       li = ich.tweet(tweet)
       $("div[data-random-tweets-path] ul").find("li").fadeOut "fast", ->
         $(this).remove()
