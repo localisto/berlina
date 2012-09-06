@@ -1,40 +1,54 @@
 <div id="eventpage" class="container">
-<div class="row">
-<div class="span9"><h1><%= @event.name %></h1></div>
-</div>
-<hr>
-<div class="row">
-<div class="span4">
+  <div class="row">
+    <div class="span9"><h1><%= @event.name %></h1></div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="span4">
 
-<b>Event Start Time: </b><%=@event.start_time.strftime("%B, %d, %Y at %I:%M %p")%><br>
-<% if @event.end_time? %>
-<br>
-<b>Event End Time: </b><%= @event.end_time.strftime("%B, %d, %Y at %I:%M %p") %>
-<% end %>
-<br><br>
-<b>Event Details</b>
-<ul>
-<% event_fields.each do |field| %>
-<% next unless @event.send("#{field}?") %>
-<li><%= @event.send(field) %></li>
-<% end %>
-</ul>
-<br><br>
-<% if @event.geocoded? %>
-<%= map_image @event %>
-<% end %>
+      <b>Event Start Time: </b><%= @event.start_time.strftime("%B, %d, %Y at %I:%M %p") %>
+      <br>
+      <% if @event.end_time? %>
+          <br>
+          <b>Event End Time: </b><%= @event.end_time.strftime("%B, %d, %Y at %I:%M %p") %>
+      <% end %>
+      <br><br>
+      <b>Event Details</b>
+      <ul>
+        <% event_fields.each do |field| %>
+            <% next unless @event.send("#{field}?") %>
+            <li><%= @event.send(field) %></li>
+        <% end %>
+      </ul>
+      <br><br>
+      <% if @event.geocoded? %>
+          <div id="map" data-lat="<%= @event.lat %>" data-lng="<%= @event.lng %>"></div>
+      <% end %>
 
-</div>
+    </div>
 
 
-<div class="span5">
+    <div class="span5">
 
-<div class="twitterwrap"><a href="https://twitter.com/intent/tweet?button_hashtag=#<%=@event.hashtag%>" class="twitter-hashtag-button" data-lang="en" data-related="localisto">Tweet #<%=@event.hashtag%></a> 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div><div class="help"></div>
-<div class="clear"></div>
+      <div class="twitterwrap">
+        <a href="https://twitter.com/intent/tweet?button_hashtag=#<%= @event.hashtag %>" class="twitter-hashtag-button" data-lang="en" data-related="localisto">Tweet
+          #<%= @event.hashtag %></a>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");</script>
+      </div>
+      <div class="help"></div>
+      <div class="clear"></div>
 
-<ul id="eventtweets" data-tweets-path="<%=tweets_path(hashtag: @event.hashtag)%>"</ul>
+      <ul id="eventtweets" data-tweets-path="<%= tweets_path(hashtag: @event.hashtag) %>"
+      </ul>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>
