@@ -6,7 +6,7 @@
 
 <ul class="orglist">
   <% @organizations.each do |organization| %>
-   <li><%= link_to organization.name, organization.next_event %></li>
+   <li><%= link_to organization.name, organization.next_event || organization.last_event %></li>
    <% end %>
 </ul>
 </center>

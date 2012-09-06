@@ -14,8 +14,12 @@ class Organization < ActiveRecord::Base
     end
   end
 
+  def last_event
+    events.past.order("start_time").last
+  end
+
   def next_event
-    events.where("start_time >= ?", Time.now).order("start_time").first
+    events.future.order("start_time").first
   end
 
   private

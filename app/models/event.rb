@@ -7,6 +7,9 @@ class Event < ActiveRecord::Base
 
   delegate :name, :hashtag, :tweets, :update_tweets!, to: :organization
 
+  scope :future, lambda { where("start_time >= ?", Time.now) }
+  scope :past, lambda { where("start_time < ?", Time.now) }
+
   def geocoded?
     lat? && lng?
   end
