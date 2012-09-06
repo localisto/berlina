@@ -18,25 +18,29 @@
 
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#{root_path}") Berlina
+    #topcon.container
+      .projecttag 
+        %a{:href=>"http://localisto.org"}
+          %img{:src => "/assets/localisto.png", :height=>10}
+        %a{:href=>"http://localisto.org"}
+          %p presents Berlina
+        
+      %a{:href => "#myModal", :role => "button", :class => "info", "data-toggle" => "modal"}
+       
+      
+      
 
-    .container
+    = bootstrap_flash
+    = yield
 
-      .content
-        .row
-          .span12
-            = bootstrap_flash
-            = yield
 
-      %footer
-        %p &copy; #{link_to "Localisto", "http://www.localisto.org"} #{Time.now.year}
+    = render 'layouts/modal'
+
+    .databy
+      %center
+        %a{:href=>"data.seattle.gov"}
+          data provided by data.seattle.gov
+    
     /
       Javascripts
       \==================================================
@@ -48,3 +52,7 @@
         {{name}}
         %a{href: "http://twitter.com/{{username}}"} @{{username}}
         {{{text}}}
+
+        %script
+          $('#myModal').modal()
+

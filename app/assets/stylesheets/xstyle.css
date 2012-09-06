@@ -1,0 +1,64 @@
+body {
+    background-color: #E9ECEF;
+    background-image: -moz-linear-gradient(left top , #FFFFFF 0%, #E9ECEF 100%);
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    height: 100%;
+    margin: 0;
+    text-shadow: 0 2px #FFFFFF;
+    width: 100%;
+    padding-top: 0px;
+}
+
+.container {width: 940px;}
+
+h1 {margin-top: 70px; font-weight: 200; font-size: 50px; color: #7f7f7f; }
+#eventpage h1 {float: left;}
+h2 { font-weight: 100; font-size: 25px; font-color: #7f7f7f;}
+.iconrow {margin-top: 60px}
+.iconrow div {width: 188px; float:left;}
+.iconrow div p {padding-left: 40px; margin-top: -20px;}
+.titlerow {}
+.titlerow li {display: inline; padding-left: 100px;}
+
+#nf {width: 940px;}
+#long {width: 1200px}
+
+#randtweets li {list-style: none;}
+
+#randtweets {margin-top: 60px}
+
+ul#eventtweets li {list-style: none; margin-top: 15px; }
+ul#eventtweets {margin: 0px;}
+ul#eventtweets img {width: 25px;}
+
+html {height: 100%}
+
+ul.orglist li {list-style: none;
+font-size: 16px;
+line-height: 28px;
+margin-left: -25px;}
+
+#clist p {margin-bottom: 20px;}
+
+.helpbutton {float: right;}
+
+.help {width: 33px; height: 30px; margin-right: -65px; float:right; background-image:url('../assets/help.png'); }
+.info {width: 33px; height: 30px; float:right; background-image:url('../assets/info.png'); }
+
+.projecttag {float: left;}
+
+#topcon {padding-top: 10px;}
+
+.modal {display: none;}
+.twitterwrap {float: left;}
+.clear {clear: both;}
+
+.projecttag p {float: left; padding-left: 7px;
+    padding-top: 2px;}
+.projecttag img {float: left;}
+
+.databy {padding-top: 80px;}
+.databy a {color: #7f7f7f;}
+

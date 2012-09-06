@@ -1,0 +1,9 @@
+%h1 Welcome to Berlina!
+
+%div{"data-random-tweets-path" => random_tweets_path}
+  %ul
+    %li
+
+%ul
+  - @categories.each do |category|
+    %li= link_to category.name, category

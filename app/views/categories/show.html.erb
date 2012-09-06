@@ -1,0 +1,13 @@
+
+<div id="clist" class="container">
+<center>
+<h1><%= @category.name %></h1>
+<p>(meetings happening soon)</p>
+
+<ul class="orglist">
+  <% @organizations.each do |organization| %>
+   <li><%= link_to organization.name, organization.next_event %></li>
+   <% end %>
+</ul>
+</center>
+</div>
