@@ -69,6 +69,7 @@ margin-left: -25px;}
 div#map { width: 370px; height: 370px; }
 
 .iconrow p {display: none;}
-.iconhold {height: 190px}
+.iconhold {height: 190px;}
 
+.popover {background: red;}
 
