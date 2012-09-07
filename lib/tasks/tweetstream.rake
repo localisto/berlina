@@ -1,11 +1,17 @@
+if defined?(Rails) && (Rails.env == 'development')
+  Rails.logger = Logger.new(STDOUT)
+end
+
 namespace :tweetstream do
   desc "Stream tweets"
   task :stream => :environment do
     TweetStream::Client.new.on_error do |message|
-      # Log your error message somewhere
+      Rails.logger.info "TweetStream error: #{message}"
     end.on_reconnect do |timeout, retries|
-      # Do something with the reconnect
+      Rails.logger.info "TweetStream timeout: #{timeout}, #{retries}"
     end.track(Organization.hashtags) do |status|
+      Rails.logger.info "TweetStream tweet: #{status.text}"
+
       twitter_user = TwitterUser.find_or_initialize_by_external_id(status.user.id)
       twitter_user.username = status.user.screen_name
       twitter_user.name = status.user.name
