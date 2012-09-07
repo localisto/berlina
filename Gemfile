@@ -19,6 +19,7 @@ end
 group :development do
   gem 'heroku'
   gem 'heroku_san'
+  gem 'sqlite3'
   gem 'taps'
 end
 
